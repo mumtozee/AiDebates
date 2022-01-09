@@ -1,0 +1,32 @@
+/* .root_header {
+  background-color: #A5A6F6;
+  height: 80px;
+  width: 100%;
+  margin-top: 0;
+  border: 1px black ;
+  color: white;
+  position: fixed;
+}
+
+#site_title {
+  margin: 0;
+  float: left;
+  padding-top: 15px;
+  padding-left: 15px;
+  font-family: monospace;
+  color: white;
+}
+
+#login_signup {
+  width: auto;
+  height: auto;
+  margin: 0;
+  float: right;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+#login_btn {
+  margin: 0;
+  margin-left: 10px;
+} */

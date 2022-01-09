@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+}
+
+#root {
+  margin-top: 0px;
+}
+
+.functional_btn {
+  margin: 0;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: blueviolet;
+  border: none;
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 
+  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1em;
+}
+
