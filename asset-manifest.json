@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/AiDebates/static/css/main.961fcfd4.chunk.css",
+    "main.js": "/AiDebates/static/js/main.90f90c38.chunk.js",
+    "main.js.map": "/AiDebates/static/js/main.90f90c38.chunk.js.map",
+    "runtime-main.js": "/AiDebates/static/js/runtime-main.5dbf41e1.js",
+    "runtime-main.js.map": "/AiDebates/static/js/runtime-main.5dbf41e1.js.map",
+    "static/css/2.383c0125.chunk.css": "/AiDebates/static/css/2.383c0125.chunk.css",
+    "static/js/2.2c22b504.chunk.js": "/AiDebates/static/js/2.2c22b504.chunk.js",
+    "static/js/2.2c22b504.chunk.js.map": "/AiDebates/static/js/2.2c22b504.chunk.js.map",
+    "index.html": "/AiDebates/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/AiDebates/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.961fcfd4.chunk.css.map": "/AiDebates/static/css/main.961fcfd4.chunk.css.map",
+    "static/js/2.2c22b504.chunk.js.LICENSE.txt": "/AiDebates/static/js/2.2c22b504.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5dbf41e1.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.2c22b504.chunk.js",
+    "static/css/main.961fcfd4.chunk.css",
+    "static/js/main.90f90c38.chunk.js"
+  ]
+}
