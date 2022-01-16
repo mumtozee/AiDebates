@@ -1,6 +1,8 @@
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 
+import TopicDataService from "../../Services/TopicDataService.js";
+
 import styles from "./AddTopic.module.css";
 
 const AddTopic = (props) => {
@@ -34,6 +36,24 @@ const AddTopic = (props) => {
     setThesis(event.target.value)
   };
 
+  const handleSend = () => {
+    let date = new Date();
+    let dateString = date.getUTCFullYear() + "-"
+      + ("0" + (date.getUTCMonth() + 1)).slice(-2) + "-"
+      + ("0" + date.getUTCDate()).slice(-2);
+
+    let topic = {
+      authorId: 1,
+      text: thesis,
+      publishedDate: dateString
+    };
+
+    console.log(topic);
+
+    TopicDataService.createTopic(topic);
+    setShow(false);
+  };
+
   return (
     <>
       <div className="row">
@@ -45,10 +65,10 @@ const AddTopic = (props) => {
         </div>
         <form action="/" onSubmit={handleShow} className="d-flex flex-row align-items-center justify-content-center">
           <div className="col-sm-7">
-            <textarea className="form-control" rows={3} onChange={handleChange} 
+            <textarea className="form-control" rows={3} onChange={handleChange}
               placeholder="Your thesis goes here" name="thesis"></textarea>
             <div className="d-flex justify-content-center align-items-center mt-2">
-              <button type="submit" databstoggle="modal" databstarget="#confirmProposal" 
+              <button type="submit" databstoggle="modal" databstarget="#confirmProposal"
                 className="btn btn-success" onClick={handleShow}>Propose</button>
             </div>
           </div>
@@ -59,11 +79,11 @@ const AddTopic = (props) => {
             </Modal.Header>
 
             <Modal.Body>
-              <p>Are you sure you want to propose the thesis<br/>&ldquo;{thesis}&rdquo; ?</p>
+              <p>Are you sure you want to propose the thesis<br />&ldquo;{thesis}&rdquo; ?</p>
             </Modal.Body>
 
             <Modal.Footer>
-              <input type="button" value="Submit" className="btn btn-primary" onClick={handleClose} />
+              <input type="button" value="Submit" className="btn btn-primary" onClick={handleSend} />
               <button type="button" className="btn btn-danger" onClick={handleClose}>Cancel</button>
             </Modal.Footer>
           </Modal>

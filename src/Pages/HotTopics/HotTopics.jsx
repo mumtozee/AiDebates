@@ -2,8 +2,22 @@ import styles from './HotTopics.module.css'
 
 import TopicCard from "../../Components/TopicCard/TopicCard";
 import AdsCarousel from '../../Components/AdsCarousel/AdsCarousel';
+import { Component } from 'react';
+import TopicDataService from '../../Services/TopicDataService';
 
-const HotTopics = () => {
+class HotTopics extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hot_topics: []
+    };
+  }
+
+  componentDidMount() {
+    TopicDataService.retrieveAllTopics().then(res => this.setState({ hot_topics: res.data }));
+  }
+
+  render() {
   return (
     <>
       <div className="row">
@@ -14,11 +28,9 @@ const HotTopics = () => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col">
-              <TopicCard topic_title="Is cyber-bullying a real problem?" for_cnt={34} against_cnt={45} />
-              <TopicCard topic_title="Are your for or against school uniforms?" for_cnt={2} against_cnt={5} />
-              <TopicCard topic_title="Studying abroad" for_cnt={106} against_cnt={12} />
+              { this.state.hot_topics.map(topic => <TopicCard title={topic["text"]} id={topic["id"]} />) }
             </div>
           </div>
         </div>
@@ -27,7 +39,7 @@ const HotTopics = () => {
         </div>
       </div>
     </>
-  );
+  );}
 };
 
 export default HotTopics;

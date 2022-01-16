@@ -28,7 +28,7 @@ const Header = (props) => {
         </div>
 
         <div style={{display: showProfile}} className="col-md-3 text-end">
-          <Link to="/profile">
+          <Link to="/profile/user123">
             <img src={`${process.env.PUBLIC_URL}/assets/avatar.jpg`} width={40} 
               className="img-thumbnail border-2 border-success rounded-circle" />
           </Link>

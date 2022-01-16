@@ -1,10 +1,18 @@
 import styles from "./Profile.module.css";
 import TopicCard from "../../Components/TopicCard/TopicCard";
-import { useState } from "react";
+import { useState,  useEffect } from "react";
 
-const Profile = () => {
+import TopicDataService from "../../Services/TopicDataService";
+
+const Profile = (props) => {
   const [disabled, setDisabled] = useState(true);
   const [inputs, setInputs] = useState({});
+  const [userTopics, setUserTopics] = useState([]);
+
+  useEffect(async () => {
+    let data = await TopicDataService.retrieveAllTopicsByUser(1).then(({data}) => data);
+    setUserTopics(data);
+  });
 
   const enableInputs = () => setDisabled(false);
   const handleChange = (event) => {
@@ -17,6 +25,9 @@ const Profile = () => {
     setDisabled(true);
     alert("Saved changes.");
   };
+  const handleDelete = () => {
+    TopicDataService.deleteTopic(5).then(res => console.log(res));
+  };
 
   return (
     <>
@@ -24,7 +35,8 @@ const Profile = () => {
         <div className="col">
           <div className="text-center">
             <h4 className="text-primary">Your profile:</h4>
-            <p className="text-secondary">registered on 01.01.2021</p>
+            <p className="text-secondary">registered on 01.01.2021 
+            <a onClick={handleDelete} className="link link-primary">Log Out</a></p>
           </div>
 
           <form action="/" onSubmit={handleSubmit}>
@@ -94,9 +106,7 @@ const Profile = () => {
 
           <div className="row">
             <div className="col">
-              <TopicCard topic_title="Is cyber-bullying a real problem?" for_cnt={34} against_cnt={45} />
-              <TopicCard topic_title="Are your for or against school uniforms?" for_cnt={2} against_cnt={5} />
-              <TopicCard topic_title="Studying abroad" for_cnt={106} against_cnt={12} />
+              { userTopics.map(topic => <TopicCard title={topic["text"]} id={topic["id"]} />) }
             </div>
           </div>
         </div>
